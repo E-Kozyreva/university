@@ -1,0 +1,5 @@
+The program generates a set of random numbers of size n in the range (min, max),
+where n, min, max are entered from the keyboard, or generated independently. 
+After that, it calculates and outputs the sum, which is obtained as follows: 
+all numbers whose numbers coincide with the fractional part of one of the original 
+numbers are subtracted, all the others are added.
