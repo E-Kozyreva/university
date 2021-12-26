@@ -11,11 +11,11 @@ int type_of_sort(){
   int answer;
 
   printf("\nВыберите тип сортировки символов:\n");
-	printf("1.Сортировка пузырьком.\n");
-	printf("2.Сортировка вставкой.\n");
-	printf("3.Быстрая сортировка.\n");
-	printf("Ваш ответ: ");
-	scanf("%d", &answer);
+  printf("1.Сортировка пузырьком.\n");
+  printf("2.Сортировка вставкой.\n");
+  printf("3.Быстрая сортировка.\n");
+  printf("Ваш ответ: ");
+  scanf("%d", &answer);
 
   if (answer == 1 || answer == 2 || answer == 3)
     return answer;
