@@ -11,10 +11,10 @@ int select_function(){
   int answer;
   
   printf("\nВыберите одну из функций:\n");
-	printf("1.Сгенерировать последовательность из псевдослучайных символов.\n");
-	printf("2.Ввести символы самостоятельно.\n");
-	printf("Ваш ответ: ");
-	scanf("%d", &answer);
+  printf("1.Сгенерировать последовательность из псевдослучайных символов.\n");
+  printf("2.Ввести символы самостоятельно.\n");
+  printf("Ваш ответ: ");
+  scanf("%d", &answer);
 
   if (answer == 1 || answer == 2)
     return answer;
@@ -32,11 +32,11 @@ int type_of_sort(){
   int answer;
 
   printf("\nВыберите тип сортировки символов:\n");
-	printf("1.Сортировка пузырьком.\n");
-	printf("2.Сортировка вставкой.\n");
-	printf("3.Быстрая сортировка.\n");
-	printf("Ваш ответ: ");
-	scanf("%d", &answer);
+  printf("1.Сортировка пузырьком.\n");
+  printf("2.Сортировка вставкой.\n");
+  printf("3.Быстрая сортировка.\n");
+  printf("Ваш ответ: ");
+  scanf("%d", &answer);
 
   if (answer == 1 || answer == 2 || answer == 3)
     return answer;
@@ -57,7 +57,7 @@ void transferring_data_to_file(bool flag, int count, char array[count]){
     file = fopen("Sorting.txt", "w");
     fprintf(file, "Неотсортированный массив:\n");
     for(int index = 0; index < count; index++)
-          fprintf(file, "%c ", array[index]);
+      fprintf(file, "%c ", array[index]);
     fprintf(file, "\n");
     fclose(file);
   }
@@ -175,18 +175,18 @@ int launching_the_program(){
 
 int main(){
 
-	int answer, count_elements;
+  int answer, count_elements;
   char random_element, random_characters[count_elements];
   bool flag_for_file;
 
   answer = select_function();
 
-	switch (answer){
+  switch (answer){
   case 1:
     srand(time(NULL));
     
-		printf("\nВведите кол-во символов, которые хотите получить: ");
-		scanf("%d", &count_elements);
+    printf("\nВведите кол-во символов, которые хотите получить: ");
+    scanf("%d", &count_elements);
 
     printf("Случайно сгененрированные символы:\n");
     for (int index = 0; index < count_elements; index++){
@@ -199,10 +199,10 @@ int main(){
     transferring_data_to_file(flag_for_file = false, count_elements, random_characters);
     answer = type_of_sort();
 
-		if (answer == 1){
+    if (answer == 1){
       bubble_sort(count_elements, random_characters);
       launching_the_program();
-		}
+    }
     else if (answer == 2){
       sorting_by_insertion(count_elements, random_characters);
       launching_the_program();
@@ -216,16 +216,16 @@ int main(){
       launching_the_program();
     }
     break;
-	case 2:
-		printf("\nВведите кол-во символов, которые хотите ввести: ");
-		scanf("%d", &count_elements);
-	  printf("Введите символы через Enter.\n");
+  case 2:
+    printf("\nВведите кол-во символов, которые хотите ввести: ");
+    scanf("%d", &count_elements);
+    printf("Введите символы через Enter.\n");
     
     char element;
-	  char array_of_characters[count_elements * 2];
+    char array_of_characters[count_elements * 2];
     char sorted_array[count_elements], index_in_array = 0;
 
-		for (int index = 0; index < (count_elements * 2); index++){
+    for (int index = 0; index < (count_elements * 2); index++){
       scanf("%c", &element);
       array_of_characters[index] = element;
     }
@@ -241,10 +241,10 @@ int main(){
     transferring_data_to_file(flag_for_file = false, count_elements, sorted_array);
     answer = type_of_sort();
 
-		if (answer == 1){
+    if (answer == 1){
       bubble_sort(count_elements, sorted_array);
       launching_the_program();
-		}
+    }
     else if (answer == 2){
       sorting_by_insertion(count_elements, sorted_array);
       launching_the_program();
