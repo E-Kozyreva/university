@@ -60,7 +60,7 @@ void transferring_data_to_file(bool flag, int count, char array[count]){
     file = fopen("Sorting.txt", "w");
     fprintf(file, "Неотсортированный массив:\n");
     for (int index = 0; index < count; index++)
-          fprintf(file, "%c ", array[index]);
+			fprintf(file, "%c ", array[index]);
     fprintf(file, "\n");
     fclose(file);
   }
