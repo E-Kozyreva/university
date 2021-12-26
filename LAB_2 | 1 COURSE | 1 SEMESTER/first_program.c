@@ -22,6 +22,8 @@ int select_function(){
     printf("\nВведите 1 или 2.\n");
     return select_function();
   }
+	
+  return 0;
 }
 
 
@@ -42,6 +44,8 @@ int type_of_sort(){
     printf("Неверный ввод, введите 1 или 2, или 3.\n");
     return type_of_sort();
   }
+	
+  return 0;
 }
 
 
@@ -83,7 +87,7 @@ void bubble_sort(int count, char array[count]){
   int element;
   bool flag, flag_for_file;
 
-  clock_t time_start= clock(); 
+  clock_t time_start = clock(); 
   for (int circle = count - 1; circle >= 0; circle--){
     flag = true;
     for (int index = 0; index < circle; index++){
@@ -108,7 +112,7 @@ void sorting_by_insertion(int count, char array[count]){
   int element, location;
   bool flag_for_file;
 
-  clock_t time_start= clock(); 
+  clock_t time_start = clock(); 
   for (int index = 1; index < count; index++){
     element = array[index];
     location = index - 1;
@@ -164,12 +168,14 @@ int launching_the_program(){
     printf("Неверный ввод, введите 1 или 2.\n");
     return launching_the_program();
   }
+	
+  return 0;
 }
 
 
 int main(){
 
-	int answer, count_elements;
+  int answer, count_elements;
   char random_element, random_characters[count_elements];
   bool flag_for_file;
 
@@ -177,7 +183,6 @@ int main(){
 
 	switch (answer){
   case 1:
-
     srand(time(NULL));
     
 		printf("\nВведите кол-во символов, которые хотите получить: ");
@@ -212,7 +217,6 @@ int main(){
     }
     break;
 	case 2:
-
 		printf("\nВведите кол-во символов, которые хотите ввести: ");
 		scanf("%d", &count_elements);
 	  printf("Введите символы через Enter.\n");
