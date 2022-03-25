@@ -1,7 +1,4 @@
-#include <iostream>
-#include <string>
-
-class Transport {
+class TTransport {
 public:
 	int answer;
 	int SelectType() {
@@ -15,7 +12,7 @@ public:
 	}
 };
 
-class Land:public Transport {
+class TLand:public TTransport {
 public:
 	std::string name;
 	std::string description;
@@ -36,8 +33,9 @@ public:
 	void TypesOfTranspot() {
 		std::cout << "\nSelect a transport. Enter number of transport:\n";
 		std::string types[9] = {"Bus", "Taxi", "Train",
-								 "Car", "Motorcycle", "Subway",
-								 "Snowmobile", "Trolleybus", "Tram",};
+								            "Car", "Motorcycle", 
+			                      "Subway", "Snowmobile", 
+			                      "Trolleybus", "Tram", };
 		for (int num = 1; num < 10; num++) {
 			std::cout << num << "." << types[num - 1] << ".\n";
 		}
@@ -52,7 +50,7 @@ public:
 	}
 };
 
-class Water:public Transport {
+class TWater:public TTransport {
 public:
 	std::string name;
 	std::string description;
@@ -72,8 +70,9 @@ public:
 	}
 	void TypesOfTranspot() {
 		std::cout << "\nSelect a transport. Enter number of transport:\n";
-		std::string types[6] = {"Ship", "Ferry", "Boat", 
-			                    "Motor ship", "Yacht", "Vessel", };
+		std::string types[6] = {"Ship", "Ferry", 
+			                      "Boat", "Motor ship", 
+			                      "Yacht", "Vessel", };
 		for (int num = 1; num < 7; num++) {
 			std::cout << num << "." << types[num - 1] << ".\n";
 		}
@@ -88,7 +87,7 @@ public:
 	}
 };
 
-class Air:public Transport {
+class TAir:public TTransport {
 public:
 	std::string name;
 	std::string description;
