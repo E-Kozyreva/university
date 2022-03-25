@@ -5,40 +5,39 @@
 #include "Water.h"
 #include "Air.h"
 
-int SelectTransport();
+void SelectTransport();
 
-int LandDescription();
-int LandSelect();
-int LandTransport(int transport);
+void LandDescription();
+void LandSelect();
+void LandTransport(int transport);
 
-int WaterDescription();
-int WaterSelect();
-int WaterTransport(int transport);
+void WaterDescription();
+void WaterSelect();
+void WaterTransport(int transport);
 
-int AirDescription();
-int AirSelect();
-int AirTransport(int transport);
+void AirDescription();
+void AirSelect();
+void AirTransport(int transport);
 
-int RestartTransport(int answer);
+void RestartTransport(int answer);
 int RestartOrEnd(int ClassNumber);
 
-int SelectTransport() {
+void SelectTransport() {
 	int answer;
-	Transport transport;
+	TTransport transport;
 	answer = transport.SelectType();
 
 	if (answer > 0 && answer < 4)
-		return RestartTransport(answer);
+		RestartTransport(answer);
 	else {
 		std::cout << "Wrong answer, try again!\n\n";
-		return SelectTransport();
+		SelectTransport();
 	}
-    return 0;
 }
 
-int LandDescription() {
+void LandDescription() {
 	int answer;
-	Land land;
+	TLand land;
 	answer = land.Description();
 
 	if (answer == 1) {
@@ -52,18 +51,17 @@ int LandDescription() {
 		SelectTransport();
 	else {
 		std::cout << "Wrong answer, try again!\n\n";
-		return LandDescription();
+		LandDescription();
 	}
-	return 0;
 }
-int LandSelect() {
+void LandSelect() {
 	int answer;
-	Land land;
+	TLand land;
 	land.TypesOfTranspot();
 	answer = land.SelectTypeOfTransport();
 
 	if (answer > 0 && answer < 10)
-		return LandTransport(answer);
+		LandTransport(answer);
 	else if (answer == 0) {
 		std::cout << "Which step do you want to go back to?\n";
 		std::cout << "1.Description.\n2.Transport.\n";
@@ -82,62 +80,60 @@ int LandSelect() {
 	}
 	else {
 		std::cout << "Wrong answer, try again!\n\n";
-		return LandSelect();
+		LandSelect();
 	}
-	return 0;
 }
-int LandTransport(int transport) {
-	if (transport == 1) {
-		Bus bus;
-		bus.Information();
+void LandTransport(int transport) {
+  if (transport == 1) {
+	  TBus* bus = new TBus;
+		bus->Information();
 		RestartOrEnd(1);
 	}
 	else if (transport == 2) {
-		Taxi taxi;
-		taxi.Information();
+		TTaxi* taxi = new TTaxi;
+		taxi->Information();
 		RestartOrEnd(1);
 	}
 	else if (transport == 3) {
-		Train train;
-		train.Information();
+		TTrain* train = new TTrain;
+		train->Information();
 		RestartOrEnd(1);
 	}
 	else if (transport == 4) {
-		Car car;
-		car.Information();
+		TCar* car = new TCar;
+		car->Information();
 		RestartOrEnd(1);
 	}
 	else if (transport == 5) {
-		Motorcycle motorcycle;
-		motorcycle.Information();
+		TMotorcycle* motorcycle = new TMotorcycle;
+		motorcycle->Information();
 		RestartOrEnd(1);
 	}
 	else if (transport == 6) {
-		Subway subway;
-		subway.Information();
+		TSubway* subway = new TSubway;
+		subway->Information();
 		RestartOrEnd(1);
 	}
 	else if (transport == 7) {
-		Snowmobile snowmobile;
-		snowmobile.Information();
+		TSnowmobile* snowmobile = new TSnowmobile;
+		snowmobile->Information();
 		RestartOrEnd(1);
 	}
 	else if (transport == 8) {
-		Trolleybus trolleybus;
-		trolleybus.Information();
+		TTrolleybus* trolleybus = new TTrolleybus;
+		trolleybus->Information();
 		RestartOrEnd(1);
 	}
 	else if (transport == 9) {
-		Tram tram;
-		tram.Information();
+		TTram* tram = new TTram;
+		tram->Information();
 		RestartOrEnd(1);
 	}
-	return 0;
 }
 
-int WaterDescription() {
+void WaterDescription() {
 	int answer;
-	Water water;
+	TWater water;
 	answer = water.Description();
 
 	if (answer == 1) {
@@ -151,18 +147,17 @@ int WaterDescription() {
 		SelectTransport();
 	else {
 		std::cout << "Wrong answer, try again!\n\n";
-		return WaterDescription();
+		WaterDescription();
 	}
-	return 0;
 }
-int WaterSelect() {
+void WaterSelect() {
 	int answer;
-	Water water;
+	TWater water;
 	water.TypesOfTranspot();
 	answer = water.SelectTypeOfTransport();
 
 	if (answer > 0 && answer < 7)
-		return WaterTransport(answer);
+		WaterTransport(answer);
 	else if (answer == 0) {
 		std::cout << "Which step do you want to go back to?\n";
 		std::cout << "1.Description.\n2.Transport.\n";
@@ -181,47 +176,45 @@ int WaterSelect() {
 	}
 	else {
 		std::cout << "Wrong answer, try again!\n\n";
-		return WaterSelect();
+		WaterSelect();
 	}
-	return 0;
 }
-int WaterTransport(int transport) {
+void WaterTransport(int transport) {
 	if (transport == 1) {
-		Ship ship;
-		ship.Information();
+		TShip* ship = new TShip;
+		ship->Information();
 		RestartOrEnd(2);
 	}
 	else if (transport == 2) {
-		Ferry ferry;
-		ferry.Information();
+		TFerry* ferry = new TFerry;
+		ferry->Information();
 		RestartOrEnd(2);
 	}
 	else if (transport == 3) {
-		Boat boat;
-		boat.Information();
+		TBoat* boat = new TBoat;
+		boat->Information();
 		RestartOrEnd(2);
 	}
 	else if (transport == 4) {
-		MotorShip motorship;
-		motorship.Information();
+		TMotorShip* motorship = new TMotorShip;
+		motorship->Information();
 		RestartOrEnd(2);
 	}
 	else if (transport == 5) {
-		Yacht yacht;
-		yacht.Information();
+		TYacht* yacht = new TYacht;
+		yacht->Information();
 		RestartOrEnd(2);
 	}
 	else if (transport == 6) {
-		Vessel vessel;
-		vessel.Information();
+		TVessel* vessel = new TVessel;
+		vessel->Information();
 		RestartOrEnd(2);
 	}
-	return 0;
 }
 
-int AirDescription() {
+void AirDescription() {
 	int answer;
-	Air air;
+	TAir air;
 	answer = air.Description();
 
 	if (answer == 1) {
@@ -235,18 +228,17 @@ int AirDescription() {
 		SelectTransport();
 	else {
 		std::cout << "Wrong answer, try again!\n\n";
-		return AirDescription();
+		AirDescription();
 	}
-	return 0;
 }
-int AirSelect() {
+void AirSelect() {
 	int answer;
-	Air air;
+	TAir air;
 	air.TypesOfTranspot();
 	answer = air.SelectTypeOfTransport();
 
 	if (answer > 0 && answer < 4)
-		return AirTransport(answer);
+		AirTransport(answer);
 	else if (answer == 0) {
 		std::cout << "Which step do you want to go back to?\n";
 		std::cout << "1.Description.\n2.Transport.\n";
@@ -260,45 +252,39 @@ int AirSelect() {
 			SelectTransport();
 		else {
 			std::cout << "Wrong answer, try again!\n\n";
-			return SelectTransport();
+			SelectTransport();
 		}
 	}
 	else {
 		std::cout << "Wrong answer, try again!\n\n";
-		return AirSelect();
+		AirSelect();
 	}
-	return 0;
 }
-int AirTransport(int transport) {
+void AirTransport(int transport) {
 	if (transport == 1) {
-		Plane plane;
-		plane.Information();
+		TPlane* plane = new TPlane;
+		plane->Information();
 		RestartOrEnd(3);
 	}
 	else if (transport == 2) {
-		Helicopter helicopter;
-		helicopter.Information();
+		THelicopter* helicopter = new THelicopter;
+		helicopter->Information();
 		RestartOrEnd(3);
 	}
 	else if (transport == 3) {
-		Balloon balloon;
-		balloon.Information();
+		TBalloon* balloon = new TBalloon;
+		balloon->Information();
 		RestartOrEnd(3);
 	}
-	return 0;
 }
 
-int RestartTransport(int answer) {
-	if (answer == 1) {
+void RestartTransport(int answer) {
+	if (answer == 1)
 		LandDescription();
-	}
-	else if (answer == 2) {
+	else if (answer == 2)
 		WaterDescription();
-	}
-	else if (answer == 3) {
+	else if (answer == 3)
 		AirDescription();
-	}
-	return 0;
 }
 int RestartOrEnd(int ClassNumber) {
 	int answer;
@@ -322,12 +308,12 @@ int RestartOrEnd(int ClassNumber) {
 		SelectTransport();
 	else {
 		std::cout << "Wrong answer, try again!\n\n";
-		return RestartOrEnd(ClassNumber);
+		RestartOrEnd(ClassNumber);
 	}
 	return 0;
 }
 
 int main() {
 	SelectTransport();
-    return 0;
+	return 0;
 }
