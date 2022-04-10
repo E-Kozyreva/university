@@ -121,7 +121,7 @@ void Arithmetic(double a1, double e1, double a2, double e2) {
 		data.PowerDComplex();
 	} else if (answer == 11) {
 		data.PowerCComplex();
-	}else if (answer == 12) {
+	} else if (answer == 12) {
 		data.TrigonometricComplex();
 	} else {
 		std::cout << "Wrong answer, try again!\n\n";
