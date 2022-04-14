@@ -317,3 +317,5 @@ void TComplex::TrigonometricComplex() {
 		PowerPComplex();
 	}
 }
+
+TComplex::~TComplex() {};
