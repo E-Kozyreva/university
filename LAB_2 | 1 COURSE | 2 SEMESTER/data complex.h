@@ -24,4 +24,6 @@ public:
 	void PowerDComplex();
 	void PowerCComplex();
 	void TrigonometricComplex();
+
+	~TComplex();
 };
