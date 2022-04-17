@@ -1,33 +1,12 @@
 #include <iostream>
 #include "classes.h"
 
-int TStrings::Options() {
-	std::cout << "Select one of the functions:\n";
-	std::cout << "1.Add lines.\n";
-	std::cout << "2.Equate one line to another.\n";
-	std::cout << "3.Compare lines.\n";
-	std::cout << "4.Which line is bigger or smaller.\n";
-	std::cout << "5.[] - something strange???\n";
-	std::cout << "Your answer: ";
-	std::cin >> answer;
-	std::cout << "\n";
-
-	if (answer > 0 && answer < 6) {
-		return answer;
-	} else {
-		std::cout << "Wrong answer, try again!\n\n";
-		Options();
-	}
-	return 0;
-}
-void TStrings::Restart() {}
-
-void TStrings::AddLines() {
-	std::string string = string1 + string2;
-	std::cout << "Your new string is:\n";
+void TStrings::AddStrings() {
+	string = string1 + string2;
+	std::cout << "Your new string is: ";
 	std::cout << string << "\n";
 }
-void TStrings::EquateLines() {
+void TStrings::EquateStrings() {
 	std::cout << "Select one of the functions:\n";
 	std::cout << "1.string 1 = string 2.\n";
 	std::cout << "2.string 2 = string 1.\n";
@@ -45,34 +24,27 @@ void TStrings::EquateLines() {
 		std::cout << "String 2: " << string2 << "\n";
 	} else {
 		std::cout << "Wrong answer, try again!\n\n";
-		EquateLines();
+		EquateStrings();
 	}
 }
-void TStrings::CompareLines() {
+void TStrings::CompareStrings() {
 	if (string1 == string2) {
-		std::cout << "The lines are equal.\n";
+		std::cout << "The strings are equal.\n";
 	} else {
-		std::cout << "The lines are not equal.\n";
+		std::cout << "The strings are not equal.\n";
 	}
 }
-void TStrings::BoSLines() {
+void TStrings::BMString() {
 	if (string1 > string2) {
-		std::cout << "The first line is larger than the second line.\n";
+		std::cout << "The first string is larger than the second line.\n";
 	} else if (string1 < string2) {
-		std::cout << "The second line is larger than the first line.\n";
+		std::cout << "The second string is larger than the first line.\n";
 	} else {
-		std::cout << "The lines are equal.\n";
+		std::cout << "The strings are equal.\n";
 	}
 }
-
-
-void TStrings::DublicateLine() {
-	int count;
-	std::cout << "Enter count to repeat line: ";
-	std::cin >> count;
-	std::cout << "\n";
-
-	std::cout << "Select string: ";
+void TStrings::IndexString() {
+	std::cout << "Select a string for further index search:\n";
 	std::cout << "1.String 1.\n";
 	std::cout << "2.String 2.\n";
 	std::cout << "Your answer: ";
@@ -81,21 +53,84 @@ void TStrings::DublicateLine() {
 
 	std::string string;
 	if (answer == 1) {
+		std::cout << "Enter the search string: ";
+		std::cin >> string;
+		std::cout << "\n";
+		int lenfind = strlen(string.c_str());
+		int lenstr = strlen(string1.c_str());
+		std::cout << "Here are the indexes. which could be found: ";
+		if (lenfind == 1) {
+			for (int n = 0; n < lenstr; n++) {
+				if (string[0] == string1[n]) {
+					std::cout << n << " ";
+				}
+			}
+		} else {
+			for (int n = 0; n < lenstr; n++) {
+				std::string slice = string1.substr(n, (static_cast<std::basic_string<char, std::char_traits<char>, std::allocator<char>>::size_type>(n) + lenfind));
+				if (string == slice) {
+					std::cout << n;
+				}
+			}
+		}
+		std::cout << "\n";
+	} else if (answer == 2) {
+		std::cout << "Enter the search string: ";
+		std::cin >> string;
+		std::cout << "\n";
+		int lenfind = strlen(string.c_str());
+		int lenstr = strlen(string2.c_str());
+		std::cout << "Here are the indexes. which could be found: ";
+		if (lenfind == 1) {
+			for (int n = 0; n < lenstr; n++) {
+				if (string[0] == string2[n]) {
+					std::cout << n;
+				}
+			}
+		} else {
+			for (int n = 0; n < lenstr; n++) {
+				std::string slice = string2.substr(n, (static_cast<std::basic_string<char, std::char_traits<char>, std::allocator<char>>::size_type>(n) + lenfind));
+				if (string == slice) {
+					std::cout << n;
+				}
+			}
+		}
+		std::cout << "\n";
+	} else {
+		std::cout << "Wrong answer, try again!\n\n";
+	}
+}
+
+
+void TStrings::DublicateString() {
+	int count;
+	std::cout << "Enter count to repeat string: ";
+	std::cin >> count;
+	std::cout << "\n";
+
+	std::cout << "Select the string:\n";
+	std::cout << "1.String 1.\n";
+	std::cout << "2.String 2.\n";
+	std::cout << "Your answer: ";
+	std::cin >> answer;
+	std::cout << "\n";
+
+	if (answer == 1) {
 		for (int n = 0; n < count; n++) {
 			string += string1;
 		}
-		std::cout << "Your string is: " << string << "\n\n";
+		std::cout << "Your string is: " << string << "\n";
 	} else if (answer == 2) {
 		for (int n = 0; n < count; n++) {
 			string += string2;
 		}
-		std::cout << "Your string is: " << string << "\n\n";
+		std::cout << "Your string is: " << string << "\n";
 	} else {
 		std::cout << "Wrong answer, try again!\n\n";
-		DublicateLine();
+		DublicateString();
 	}
 }
-void TStrings::FindLine() {
+void TStrings::FindString() {
 	int lenfind;
 	std::string find;
 	std::cout << "Enter string, which you want to find.\n";
@@ -104,7 +139,7 @@ void TStrings::FindLine() {
 	lenfind = strlen(find.c_str());
 	std::cout << "\n";
 
-	std::cout << "Select string: ";
+	std::cout << "Select string:\n";
 	std::cout << "1.String 1.\n";
 	std::cout << "2.String 2.\n";
 	std::cout << "Your answer: ";
@@ -115,24 +150,26 @@ void TStrings::FindLine() {
 	if (answer == 1) {
 		int lenstring = strlen(string1.c_str());
 		for (int n = 0; n < lenstring - lenfind; n++) {
-			std::string slice = string1.substr(n, n + lenfind);
+			std::string slice = string1.substr(n, (static_cast<std::basic_string<char, std::char_traits<char>, std::allocator<char>>::size_type>(n) + lenfind));
 			if (slice == find) {
 				count += 1;
 			}
 		}
-		std::cout << "Count = " << count << "\n";
+		std::cout << "The string <" << find << "> ";
+		std::cout << "occurs " << count << " times.\n\n";
 	} else if (answer == 2) {
 		int lenstring = strlen(string2.c_str());
 		for (int n = 0; n < lenstring - lenfind; n++) {
-			std::string slice = string2.substr(n, n + lenfind);
+			std::string slice = string2.substr(n, static_cast<std::basic_string<char, std::char_traits<char>, std::allocator<char>>::size_type>(n) + lenfind);
 			if (slice == find) {
 				count += 1;
 			}
 		}
-		std::cout << "Count = " << count << "\n";
+		std::cout << "The string <" << find << "> ";
+		std::cout << "occurs " << count << " times.\n\n";
 	} else {
 		std::cout << "Wrong answer, try again!\n\n";
-		FindLine();
+		FindString();
 	}
 }
 
