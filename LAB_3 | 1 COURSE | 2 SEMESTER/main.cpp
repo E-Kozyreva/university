@@ -8,6 +8,7 @@
 int main() {
 	int function, option;
 	std::string str1, str2;
+
 	function = Functions();
 
 	if (function == 1) {
