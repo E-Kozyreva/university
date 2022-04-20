@@ -1,6 +1,6 @@
-#include <iostream>
 #include "functions.h"
 #include "classes.h"
+
 
 int Functions();
 std::string GetString();
@@ -11,15 +11,15 @@ void Restart(int answer, std::string str1, std::string str2);
 
 int Functions() {
 	int answer;
+
 	std::cout << "Select one of the functions:\n";
 	std::cout << "1.Enter string in colsole.\n";
 	std::cout << "2.Generate random strings.\n";
-	std::cout << "3.Get string from file.\n";
 	std::cout << "Your answer: ";
 	std::cin >> answer;
-	std::cout << std::endl;
+	std::cout << "\n";
 
-	if (answer > 0 && answer < 4) {
+	if (answer > 0 && answer < 3) {
 		return answer;
 	} else {
 		std::cout << "Wrong answer, try again!\n\n";
@@ -29,12 +29,14 @@ int Functions() {
 }
 std::string GetString() {
 	std::string str;
+
 	std::cout << "Enter string: ";
 	std::cin >> str;
 	return str;
 }
 int LineOptions() {
 	int answer;
+
 	std::cout << "Select one of the options:\n";
 	std::cout << "1.Add strings.\n";
 	std::cout << "2.Copy strings.\n";
@@ -43,11 +45,14 @@ int LineOptions() {
 	std::cout << "5.Find the index of the entered string.\n";
 	std::cout << "6.Copy a string multiple times.\n";
 	std::cout << "7.Find an item in string.\n";
+	std::cout << "8.Find a frequently occurring symbol.\n";
+	std::cout << "9.Characters that are in the string.\n";
+	std::cout << "10.Parsing a string by characters.\n";
 	std::cout << "Your answer: ";
 	std::cin >> answer;
 	std::cout << "\n";
 
-	if (answer > 0 && answer < 8) {
+	if (answer > 0 && answer < 11) {
 		return answer;
 	} else {
 		std::cout << "Wrong answer, try again!\n\n";
@@ -72,9 +77,15 @@ void GetOption(int answer, std::string str1, std::string str2) {
 		strings.DublicateString();
 	} else if (answer == 7) {
 		strings.FindString();
+	} else if (answer == 8) {
+		strings.CountString();
+	} else if (answer == 9) {
+		strings.SymbolsInString();
+	} else if (answer == 10) {
+		strings.CountSymbolsInString();
 	}
 	std::cout << "\n";
-	Restart(answer, str1,str2);
+	Restart(answer, str1, str2);
 }
 void Restart(int answer, std::string str1, std::string str2) {
 	std::cout << "Do you want to do something else?\n";
