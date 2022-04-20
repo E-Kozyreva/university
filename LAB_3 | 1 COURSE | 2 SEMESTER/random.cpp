@@ -13,10 +13,10 @@ int GetRandomSymbol(int min, int max) {
 	return 0;
 }
 std::string GetData(int answer) {
-	int min, max;
-	int len;
+	int min, max, len;
 	char mins, maxs;
 	std::string string;
+
 	if (answer == 1) {
 		std::cout << "Enter min: ";
 		std::cin >> mins;
@@ -25,8 +25,10 @@ std::string GetData(int answer) {
 		std::cout << "Enter len of the string: ";
 		std::cin >> len;
 		std::cout << "\n";
+
 		min = (int)mins;
 		max = (int)maxs;
+
 		for (int n = 0; n < len; n++) {
 			string += (char)GetRandomSymbol(min, max);
 		}
@@ -35,8 +37,10 @@ std::string GetData(int answer) {
 		std::cout << "Enter len of the string: ";
 		std::cin >> len;
 		std::cout << "\n";
+
 		min = 65;
 		max = 123;
+
 		for (int n = 0; n < len; n++) {
 			string += (char)GetRandomSymbol(min, max);
 		}
@@ -47,12 +51,14 @@ std::string GetData(int answer) {
 std::string GetRandom() {
 	int answer;
 	std::string string;
+
 	std::cout << "Select one of the function:\n";
 	std::cout << "1.Generate in the range (min | max).\n";
 	std::cout << "2.Generate without range.\n";
 	std::cout << "Your answer: ";
 	std::cin >> answer;
 	std::cout << "\n";
+
 	if (answer == 1) {
 		string = GetData(answer);
 		std::cout << "Your string: ";
