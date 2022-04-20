@@ -12,6 +12,8 @@ public:
 		string2 = str2;
 	}
 
+	int SelectString();
+
 	void AddStrings();
 	void EquateStrings();
 	void CompareStrings();
@@ -20,6 +22,9 @@ public:
 
 	void DublicateString();
 	void FindString();
+	void CountString();
+	void SymbolsInString();
+	void CountSymbolsInString();
 
 	~TStrings();
 };
