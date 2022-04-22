@@ -3,14 +3,13 @@ class TStrings {
 private:
 	std::string string1;
 	std::string string2;
+	std::string *str1;
+	std::string *str2;
+	size_t s1 = strlen(string1.c_str());
+	size_t s2 = strlen(string2.c_str());
 public:
-	int answer;
-	std::string string;
-
-	TStrings(std::string& str1, std::string& str2) {
-		string1 = str1;
-		string2 = str2;
-	}
+	TStrings(std::string& str1, std::string& str2);
+	TStrings(const TStrings& other);
 
 	int SelectString();
 
