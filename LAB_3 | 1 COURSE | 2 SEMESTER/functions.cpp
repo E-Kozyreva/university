@@ -1,6 +1,6 @@
+#include <iostream>
 #include "functions.h"
 #include "classes.h"
-
 
 int Functions();
 std::string GetString();
@@ -8,10 +8,9 @@ int LineOptions();
 void GetOption(int answer, std::string str1, std::string str2);
 void Restart(int answer, std::string str1, std::string str2);
 
-
-int Functions() {
+int Functions() 
+{
 	int answer;
-
 	std::cout << "Select one of the functions:\n";
 	std::cout << "1.Enter string in colsole.\n";
 	std::cout << "2.Generate random strings.\n";
@@ -27,16 +26,16 @@ int Functions() {
 	}
 	return 0;
 }
-std::string GetString() {
+std::string GetString() 
+{
 	std::string str;
-
 	std::cout << "Enter string: ";
 	std::cin >> str;
 	return str;
 }
-int LineOptions() {
+int LineOptions() 
+{
 	int answer;
-
 	std::cout << "Select one of the options:\n";
 	std::cout << "1.Add strings.\n";
 	std::cout << "2.Copy strings.\n";
@@ -60,8 +59,10 @@ int LineOptions() {
 	}
 	return 0;
 }
-void GetOption(int answer, std::string str1, std::string str2) {
+void GetOption(int answer, std::string str1, std::string str2) 
+{
 	TStrings strings{str1, str2};
+	TStrings copy{strings};
 
 	if (answer == 1) {
 		strings.AddStrings();
@@ -87,7 +88,8 @@ void GetOption(int answer, std::string str1, std::string str2) {
 	std::cout << "\n";
 	Restart(answer, str1, str2);
 }
-void Restart(int answer, std::string str1, std::string str2) {
+void Restart(int answer, std::string str1, std::string str2) 
+{
 	std::cout << "Do you want to do something else?\n";
 	std::cout << "1.Yes.\n2.No.\n";
 	std::cout << "Your answer: ";
