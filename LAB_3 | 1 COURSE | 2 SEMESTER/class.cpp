@@ -4,8 +4,26 @@
 #include <algorithm>
 #include "classes.h"
 
+TStrings::TStrings(std::string& str1, std::string& str2) {
+	string1 = str1;
+	string2 = str2;
+}
+TStrings::TStrings(const TStrings& other) 
+{
+	this->s1 = other.s1;
+	this->s2 = other.s2;
 
-int TStrings::SelectString() {
+	this->str1 = new std::string[other.s1];
+	for (int i = 0; i < other.s1; i++)
+		this->str1[i] = other.str1[i];
+
+	this->str2 = new std::string[other.s2];
+	for (int i = 0; i < other.s2; i++)
+		this->str2[i] = other.str2[i];
+}
+
+int TStrings::SelectString() 
+{
 	int answer;
 	std::cout << "Select a string for further index search:\n";
 	std::cout << "1.String 1.\n";
@@ -16,13 +34,16 @@ int TStrings::SelectString() {
 	return answer;
 }
 
-void TStrings::AddStrings() {
-	string = string1 + string2;
+void TStrings::AddStrings() 
+{
+	std::string string = string1 + string2;
 	std::cout << "Your new string is: ";
 	std::cout << string << "\n";
 	string.clear();
 }
-void TStrings::EquateStrings() {
+void TStrings::EquateStrings() 
+{
+	int answer;
 	std::cout << "Select one of the functions:\n";
 	std::cout << "1.string 1 = string 2.\n";
 	std::cout << "2.string 2 = string 1.\n";
@@ -43,14 +64,16 @@ void TStrings::EquateStrings() {
 		EquateStrings();
 	}
 }
-void TStrings::CompareStrings() {
+void TStrings::CompareStrings() 
+{
 	if (string1 == string2) {
 		std::cout << "The strings are equal.\n";
 	} else {
 		std::cout << "The strings are not equal.\n";
 	}
 }
-void TStrings::BMString() {
+void TStrings::BMString() 
+{
 	if (string1 > string2) {
 		std::cout << "The first string is larger than the second line.\n";
 	} else if (string1 < string2) {
@@ -59,9 +82,10 @@ void TStrings::BMString() {
 		std::cout << "The strings are equal.\n";
 	}
 }
-void TStrings::IndexString() {
+void TStrings::IndexString() 
+{
+	int answer;
 	std::string string;
-
 	answer = SelectString();
 
 	if (answer == 1) {
@@ -69,8 +93,8 @@ void TStrings::IndexString() {
 		std::cin >> string;
 		std::cout << "\n";
 
-		int lenfind = strlen(string.c_str());
-		int lenstr = strlen(string1.c_str());
+		size_t lenfind = strlen(string.c_str());
+		size_t lenstr = strlen(string1.c_str());
 
 		std::cout << "Here are the indexes. which could be found: ";
 		if (lenfind == 1) {
@@ -95,8 +119,8 @@ void TStrings::IndexString() {
 		std::cin >> string;
 		std::cout << "\n";
 
-		int lenfind = strlen(string.c_str());
-		int lenstr = strlen(string2.c_str());
+		size_t lenfind = strlen(string.c_str());
+		size_t lenstr = strlen(string2.c_str());
 
 		std::cout << "Here are the indexes. which could be found: ";
 		if (lenfind == 1) {
@@ -122,8 +146,10 @@ void TStrings::IndexString() {
 	}
 }
 
-
-void TStrings::DublicateString() {
+void TStrings::DublicateString() 
+{
+	int answer;
+	std::string string;
 	answer = SelectString();
 
 	int count;
@@ -146,7 +172,10 @@ void TStrings::DublicateString() {
 		DublicateString();
 	}
 }
-void TStrings::FindString() {
+void TStrings::FindString() 
+{
+	int answer;
+	std::string string;
 	answer = SelectString();
 
 	if (answer == 1) {
@@ -158,8 +187,8 @@ void TStrings::FindString() {
 		std::cin >> find;
 		std::cout << "\n";
 
-		int lenfind = strlen(find.c_str());
-		int lenstr = strlen(string1.c_str());
+		size_t lenfind =strlen(find.c_str());
+		size_t lenstr = strlen(string1.c_str());
 
 		for (int n = 0; n < lenstr - lenfind; n++) {
 			std::string slice = string1.substr(n, (static_cast<std::basic_string<char, std::char_traits<char>, std::allocator<char>>::size_type>(n) + lenfind));
@@ -180,8 +209,8 @@ void TStrings::FindString() {
 		std::cin >> find;
 		std::cout << "\n";
 
-		int lenfind = strlen(find.c_str());
-		int lenstr = strlen(string2.c_str());
+		size_t lenfind = strlen(find.c_str());
+		size_t lenstr = strlen(string2.c_str());
 
 		for (int n = 0; n < lenstr - lenfind; n++) {
 			std::string slice = string2.substr(n, static_cast<std::basic_string<char, std::char_traits<char>, std::allocator<char>>::size_type>(n) + lenfind);
@@ -198,7 +227,9 @@ void TStrings::FindString() {
 		FindString();
 	}
 }
-void TStrings::CountString() {
+void TStrings::CountString() 
+{
+	int answer;
 	answer = SelectString();
 
 	if (answer == 1) {
@@ -226,12 +257,14 @@ void TStrings::CountString() {
 		CountString();
 	}
 }
-void TStrings::SymbolsInString() {
+void TStrings::SymbolsInString() 
+{
+	int answer;
 	answer = SelectString();
 
 	if (answer == 1) {
 		std::set <char> symbols;
-		int lenstr = strlen(string1.c_str());
+		size_t lenstr = strlen(string1.c_str());
 		for (int n = 0; n < lenstr; n++) {
 			symbols.insert(string1[n]);
 		}
@@ -243,7 +276,7 @@ void TStrings::SymbolsInString() {
 		symbols.clear();
 	} else if (answer == 2) {
 		std::set <char> symbols;
-		int lenstr = strlen(string2.c_str());
+		size_t lenstr = strlen(string2.c_str());
 		for (int n = 0; n < lenstr; n++) {
 			symbols.insert(string2[n]);
 		}
@@ -258,12 +291,14 @@ void TStrings::SymbolsInString() {
 		SymbolsInString();
 	}
 }
-void TStrings::CountSymbolsInString() {
+void TStrings::CountSymbolsInString() 
+{
+	int answer;
 	answer = SelectString();
 
 	if (answer == 1) {
 		std::set <char> symbols;
-		int lenstr = strlen(string1.c_str());
+		size_t lenstr = strlen(string1.c_str());
 		for (int n = 0; n < lenstr; n++) {
 			symbols.insert(string1[n]);
 		}
@@ -281,7 +316,7 @@ void TStrings::CountSymbolsInString() {
 		symbols.clear();
 	} else if (answer == 2) {
 		std::set <char> symbols;
-		int lenstr = strlen(string2.c_str());
+		size_t lenstr = strlen(string2.c_str());
 		for (int n = 0; n < lenstr; n++) {
 			symbols.insert(string2[n]);
 		}
@@ -304,7 +339,10 @@ void TStrings::CountSymbolsInString() {
 	}
 };
 
-TStrings::~TStrings() {
+TStrings::~TStrings() 
+{
 	string1.clear();
 	string2.clear();
+	delete[] str1;
+	delete[] str2;
 };
