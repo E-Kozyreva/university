@@ -1,5 +1,5 @@
 #include <iostream>
-#include "Mult.h"
+#include "Operations.h"
 #include "Vector.h"
 #include "Matrix.h"
 using namespace std;
