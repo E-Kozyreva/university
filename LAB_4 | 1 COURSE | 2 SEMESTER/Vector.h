@@ -11,19 +11,24 @@ protected:
 	T* vector;
 public:
 	Vector() {};
+	Vector(int s, const T* arr);
 	Vector(int l);
 	Vector(const Vector& V);
-	Vector(int s, const T* arr);
 	~Vector();
 
-	void SetI(int i, T symbol);
-	int GetW();
 
-	Vector<T> operator = (const Vector<T>& other);
-	bool operator ==(const Vector<T>& other);
+	int GetW();
+	void SetI(int i, T symbol);
+
+	void Bubble_sort();
+	void Insertion_sort();
+	void Quick_sort(int first, int last);
+
 	T operator [](const int n);
 	Vector<T> operator+(const Vector<T>& other);
 	Vector<T> operator-(const Vector<T>& other);
+	Vector<T> operator = (const Vector<T>& other);
+	bool operator ==(const Vector<T>& other);
 	T operator*(const Vector<T>& other);
 
 	template <class T>
