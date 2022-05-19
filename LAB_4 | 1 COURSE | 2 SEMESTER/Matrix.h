@@ -11,24 +11,25 @@ protected:
 	int l;
 public:
 	Matrix();
+	Matrix(int s1, int s2, T** arr);
 	Matrix(int _w, int _l);
 	Matrix(const Matrix& M);
-	Matrix(int s1, int s2, T** arr);
 	~Matrix();
 
-	T GetM(int i, int j);
-	void SetM(int i, int j, T val);
+
 	int GetW();
 	int GetL();
+	void SetM(int i, int j, T val);
 	void SetI(int i1, int i2, T symbol);
+	T GetM(int i, int j);
 
+
+	T*& operator[](const int _n);
 	Matrix<T> operator+(const Matrix<T>& M);
 	Matrix<T> operator-(const Matrix<T>& M);
-	Matrix<T> operator*(const Matrix<T>& M);
 	Matrix<T> operator=(const Matrix<T>& M);
 	bool operator==(const Matrix<T>& M);
-	T*& operator[](const int _n);
-
+	Matrix<T> operator*(const Matrix<T>& M);
 	template<class T>
 	friend ostream& operator<<(ostream& os, const Matrix<T>& mat);
 	template<class T>
