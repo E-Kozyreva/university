@@ -1,26 +1,26 @@
 ## 1 course | 1 semester
-- [1 laboratory](https://github.com/E-Kozyreva/university/tree/main/1%20course/1%20semester/lab%201 "Repository")
+- 1 laboratory
 >The program generates a set of random numbers of size n in the range (min, max), where n, min, max are entered from the keyboard, or generated independently. After that, it calculates and outputs the sum, which is obtained as follows: all numbers whose numbers coincide with the fractional part of one of the original numbers are subtracted, all the others are added. <br/>
-- [2 laboratory](https://github.com/E-Kozyreva/university/tree/main/1%20course/1%20semester/lab%202 "Repository")
+- 2 laboratory
 >Implement sorting of arrays of data (the data type is determined by the teacher) set: necessarily randomly, additionally from the keyboard or from a file. Implement sorting: bubble, insert, fast. Compare working hours, draw conclusions. The first program creates a text file with numbers written into it. The program accepts the number of numbers n, the maximum and minimum values. The second program reads a text file with a set of numbers, outputs a console interface (print, sort, reset, exit), performs the selected actions.
 
 >Additional tasks: The first program can create an array not only from random numbers, but also get them from the keyboard and from a file, add the ability to start sorting via command line parameters, calculation of the first nome of the vector (array), calculation of the second norm of the vector (array), calculation of the Helder norm of a vector (array), calculation of infinite norm of vector (array), normalization of a vector (array).
 
 ## 1 course | 2 semester
-- [1 laboratory | zoo](https://github.com/E-Kozyreva/university/tree/main/1%20course/2%20semester/lab%201 "Repository")
+- 1 laboratory | zoo
 >Write a hierarchy of classes according to the chosen or invented topic.  Examples of topics: zoo, musical instruments, trees, stationery, transport. Demonstrate (write an example in main) efficiency. Abstraction, encapsulation, inheritance, polymorphism should be used and demonstrated. The hierarchy must contain at least three levels (at least 7 classes), example: at the upper level - an animal, mammals and insects are inherited from it, a cat and a dog are inherited from a mammal, ants and bees are inherited from insects. <br/>
-- [2 laboratory | complex](https://github.com/E-Kozyreva/university/tree/main/1%20course/2%20semester/lab%202 "Repository")
+- 2 laboratory | complex
 >Write a class of complex numbers that allows you to work with complex numbers according to the material covered in the course, algebra and geometry. To demonstrate its work with an example (write an example in main). There must be: constructors (default, initializer, copy), access to protected fields, overloaded operations: +,-,*,/,=,==, streaming input and output.
 
 >Additional task: to write and test a method for calculating the modulus of a complex number, a method for raising a complex number to a positive integer power, a method for raising it to a negative integer power (you can expand the previous method), a method for raising it to a fractional power (you can expand the previous method), a method for raising it to a complex power, printing the trigonometric form of a complex number.
-- [3 laboratory | string](https://github.com/E-Kozyreva/university/tree/main/1%20course/2%20semester/lab%203 "Repository")
+- 3 laboratory | string
 >Write a class to work with strings. 
 To demonstrate its work with an example (write an example in main). There must be: constructors (default, initializer, copy), destructor, access to protected fields, overloaded operations: +,=,==, <, >, [] streaming input and output, search for the first occurrence of a word, search for the first occurrence of a character, splitting into sub-words by character. 
 
 >Additional task: write and test a method that duplicates a string k times, a method that searches for ALL occurrences of a substring in a string, a method that returns the most common character in a string, a method that returns an array of string characters without repetition (example: input - "absab", output - "a", "b", "c"), a method that determines which character occurs how many times in a string (example: input - "absab", output - a - 2, b - 2, c - 1).
-- [4 laboratory | vector](https://github.com/E-Kozyreva/university/tree/main/1%20course/2%20semester/lab%204 "Repository")
+- 4 laboratory | vector
 >Write classes for working with vectors and matrices, use templates.  Vectors in the mathematical sense: there is a set of values from an N-dimensional space, the dimension is set as a parameter.   The matrix must be the successor of the vector. Vector and matrix classes should be moved to a static library.  Demonstrate their work with an example (write an example in main). There must be: constructors (default, initializer, copy), destructor, access to protected fields, overloaded operations: +,-,*,/,=,==, [] streaming input and output, overloaded operations +,-,*,/ must be implemented for vectors (vector +-*/ vector), matrix (matrix +-* matrix), matrix-vector (matrix * vector and vice versa).
 
 >Additional task: write a method looking for the number of occurrences of a specified value, a method looking for all occurrences of a given value, a matrix division method, a vector class should be able to sort it in three ways (bubble, insert, quick sort, see the second laboratory of the first semester).
-- [5 laboratory | geometric shapes](https://github.com/E-Kozyreva/university/tree/main/1%20course/2%20semester/lab%205 "Repository")
+- 5 laboratory | geometric shapes
 >Write a data structure for working with geometric objects in N dimensional space. The data type is defined by the user (templates).  The simplest geometric objects should be implemented, such as: point, line, circle, square, polygon, cube, simplex, etc. Except for the geoms themselves. objects should be implemented by a class that generalizes actions with all user-created objects - a "container". The container should have the following functions: add a new object, delete an existing object, display all existing objects, display the selected object, etc., etc. Demonstrate (write an example in main) efficiency. Abstraction, encapsulation, inheritance, polymorphism, overloading of operations, templates should be used and demonstrated.
